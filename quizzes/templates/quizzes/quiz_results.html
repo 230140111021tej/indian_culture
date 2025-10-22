@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+  <h2>Quiz Results: {{ quiz.title }}</h2>
+  <div class="alert alert-info">
+    <strong>Your Score:</strong> {{ score }} out of {{ total }}
+  </div>
+  {% if completed %}
+    <p>Congratulations! You have completed this quiz.</p>
+    <a href="{% url 'quiz_list' %}" class="btn btn-primary">Try Another Quiz</a>
+  {% endif %}
+</div>
+{% endblock %}
