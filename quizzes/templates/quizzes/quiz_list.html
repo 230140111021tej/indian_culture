@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+  <h1>Explore Indian Culture Quizzes!</h1>
+  <p>Test your knowledge and learn about India's rich heritage. Select a quiz below:</p>
+  <ul class="list-group">
+    {% for quiz in quizzes %}
+      <li class="list-group-item">
+        <a href="{% url 'take_quiz' quiz.id %}">{{ quiz.title }}</a>
+        <span class="text-muted"> - {{ quiz.description }}</span>
+      </li>
+    {% empty %}
+      <li class="list-group-item">No quizzes available yet.</li>
+    {% endfor %}
+  </ul>
+</div>
+{% endblock %}
